@@ -1,0 +1,15 @@
+{
+  "name": "@rail-ai/cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "rail": "./src/index.ts"
+  },
+  "dependencies": {
+    "@rail-ai/core": "*",
+    "@rail-ai/shared": "*",
+    "commander": "^13.1.0",
+    "yaml": "^2.7.0"
+  }
+}
