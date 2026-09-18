@@ -1,0 +1,69 @@
+# Copied into workspaces by `rail init` (see packages/core defaultPolicyYaml).
+# This file is the checked-in reference copy.
+
+version: 1
+
+read:
+  allow:
+    - "**/*"
+  deny:
+    - "**/.env"
+    - "**/.env.*"
+    - "**/.ssh/**"
+    - "**/*id_rsa*"
+    - "**/*id_ed25519*"
+    - "**/credentials.json"
+    - "**/.aws/credentials"
+
+write:
+  allow:
+    - "**/*"
+  deny:
+    - "**/.env"
+    - "**/.env.*"
+    - "**/.ssh/**"
+    - "**/.git/objects/**"
+
+commands:
+  allow:
+    - "ls"
+    - "ls *"
+    - "pwd"
+    - "cat *"
+    - "head *"
+    - "rg *"
+    - "grep *"
+    - "npm test*"
+    - "npm run *"
+    - "pnpm test*"
+    - "yarn test*"
+    - "cargo test*"
+    - "pytest*"
+    - "node *"
+    - "python *"
+    - "python3 *"
+    - "git status*"
+    - "git diff*"
+    - "git log*"
+  deny:
+    - "rm -rf *"
+    - "rm -rf /*"
+    - "sudo *"
+    - "git push --force*"
+    - "git push -f *"
+    - "git reset --hard*"
+    - "curl *"
+    - "wget *"
+    - "chmod 777 *"
+
+network: off
+network_allowlist: []
+
+budgets:
+  max_usd: 2
+  max_minutes: 20
+
+git:
+  allow_destructive: false
+  allow_force_push: false
+  allow_commit: false
